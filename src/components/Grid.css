@@ -1,0 +1,38 @@
+/* src/ImageGrid.css */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+  padding: 10px;
+}
+
+.grid-item {
+  border: 1px solid #ddd;
+  padding: 5px;
+}
+
+.grid-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card {
+  border-radius: 0 !important;
+}
+
+.card img {
+  border-radius: 0 !important;
+}
+
+.box {
+  border: 1px solid black;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.selected-image-name {
+  font-size: 1rem;
+  text-align: center;
+  margin:0;
+}
