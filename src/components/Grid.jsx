@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import './Grid.css';
 
 import art1 from '../assets/art1.jpg';
@@ -15,42 +15,32 @@ const images = [
   { src: art5, name: 'Water Lillies by Monet' },
 ];
 
-class Grid extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedImageName: '',
-    };
-  }
+const Grid = () => {
+    const [selectedImageName, setSelectedImageName] = useState('');
 
-  handleImageClick = (name) => {
-    this.setState({ selectedImageName: name });
-  };
+const handleImageClick = (name) => {
+  setSelectedImageName(name);
+};
 
-  render(){
-    const { selectedImageName } = this.state;
-
-
-    return (
-      <div className="container mt-4">
-        <div className="box">
-          <h1 className="selected-image-name">{selectedImageName}</h1>
-        </div>
-        <div className="row">
-          {images.map((image, index) => (
-            <div key={index} className="col-sm-6 col-md-4 col-lg-3 mb-4">
-              <div className="card">
-                <img src={image.src} className="card-img-top" alt={`Art ${index + 1}`}
-                onClick={() => this.handleImageClick(image.name)}
-                style={{ cursor: 'pointer'}}
-                />
-              </div>
-            </div>
-          ))}
-        </div>
+  return (
+    <div className="container mt-4">
+      <div className="box">
+        <h1 className="selected-image-name">{selectedImageName}</h1>
       </div>
-    )
-  }
-}
+      <div className="row">
+        {images.map((image, index) => (
+          <div key={index} className="col-sm-6 col-md-4 col-lg-3 mb-4">
+            <div className="card">
+              <img src={image.src} className="card-img-top" alt={`Art ${index + 1}`}
+              onClick={() => handleImageClick(image.name)}
+              style={{ cursor: 'pointer'}}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export default Grid;
