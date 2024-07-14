@@ -2,6 +2,8 @@ import React from 'react'
 import './App.css'
 import Navbar from './components/Navbar'
 import Grid from './components/Grid'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 function App() {

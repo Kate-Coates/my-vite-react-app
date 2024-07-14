@@ -47,63 +47,16 @@
   cursor: pointer;
 }
 
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000; /* Ensures modal appears above other content */
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.modal-show {
-  opacity: 1;
-  pointer-events: auto;
-}
 
 .modal-content {
   background: #fff;
   padding: 20px;
   border-radius: 8px;
   text-align: center;
-  position: relative;
 }
 
 .modal-img {
   max-width: 100%;
   max-height: 70vh; /* Ensures image doesn’t overflow the viewport */
   border-radius: 8px;
-}
-
-.modal-title {
-  margin: 15px 0;
-  font-size: 1.5em;
-  color: #333;
-}
-
-.modal-close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: #f00;
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-.modal-close:hover {
-  background: #c00;
 }

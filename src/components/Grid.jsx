@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './Grid.css';
-
 import fallbackImage from '../assets/art1.jpg';
+import { Modal, Button } from 'react-bootstrap';
 
 // import art1 from '../assets/art1.jpg';
 // import art2 from '../assets/art2.jpg';
@@ -21,6 +21,7 @@ const Grid = () => {
     const [images, setImages] = useState([]);
     // const [selectedImageName, setSelectedImageName] = useState('');
     const [selectedImage, setSelectedImage] = useState(null);
+    const [show, setShow] = useState(false);
 
     useEffect(() => {
       const fetchImages = async () => {
@@ -50,10 +51,11 @@ const Grid = () => {
 
 const handleImageClick = (image) => {
   setSelectedImage(image);
+  setShow(true);
 };
 
-const handleCloseModal = () => {
-  setSelectedImage(null);
+const handleClose = () => {
+  setShow(false);
 };
 
   // return (
@@ -106,15 +108,19 @@ const handleCloseModal = () => {
           </div>
         ))}
       </div>
-      {selectedImage && (
-        <div className="modal modal-show" onClick={handleCloseModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <img src={selectedImage.src} alt={selectedImage.name} className="modal-img" />
-            <h2 className="modal-title">{selectedImage.name}</h2>
-            <button className="modal-close" onClick={handleCloseModal}>Close</button>
-          </div>
-        </div>
-      )}
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>{selectedImage?.name}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {selectedImage && <img src={selectedImage.src} alt={setSelectedImage.name} className="img-fluid" />}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };
